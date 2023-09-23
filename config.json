@@ -1,0 +1,6 @@
+{
+    "b2cTenantName": "<your_b2c>.onmicrosoft.com",
+    "b2cIdentityExperienceFrameworkAppId": "<your_client_id>",
+    "b2cProxyIdentityExperienceFrameworkAppId": "<your_client_id>"
+}
+
