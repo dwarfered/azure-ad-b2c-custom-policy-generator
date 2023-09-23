@@ -18,7 +18,6 @@ $config = Get-Content -Path ./config.json -Raw | ConvertFrom-Json
 $tenantId = $config.b2cTenantName
 $identityExperienceFrameworkAppId = $config.b2cIdentityExperienceFrameworkAppId
 $proxyIdentityExperienceFrameworkAppId = $config.b2cProxyIdentityExperienceFrameworkAppId
-$publicPolicyUri = "http://$tenantId/B2C_1A_signin"
 $templatesPath = './templates/active-directory-b2c-custom-policy-starterpack-main/SocialAndLocalAccountsWithMfa/'
 
 # Signin.xml
@@ -28,6 +27,7 @@ $filename = 'Signin.xml'
 $signin.TrustFrameworkPolicy.PolicyId = 'B2C_1A_signin'
 $signin.TrustFrameworkPolicy.TenantId = $tenantId
 $signin.TrustFrameworkPolicy.BasePolicy.TenantId = $tenantId
+$publicPolicyUri = "http://$tenantId/B2C_1A_signin"
 $signin.TrustFrameworkPolicy.PublicPolicyUri = $publicPolicyUri
 $signin.Save("$(Get-Location)/output/$filename")
 
@@ -36,9 +36,10 @@ $templateXml = $templatesPath + 'TrustFrameworkExtensions.xml'
 $filename = $templateXml.Split('/')[($templateXml.split('/').Count -1)]
 [xml]$trustFrameworkExtensions = Get-Content -Path $templateXml
 $trustFrameworkExtensions.TrustFrameworkPolicy.TenantId = $tenantId
+$publicPolicyUri = "http://$tenantId/B2C_1A_TrustFrameworkExtensions"
 $trustFrameworkExtensions.TrustFrameworkPolicy.PublicPolicyUri = $publicPolicyUri
 $trustFrameworkExtensions.TrustFrameworkPolicy.BasePolicy.TenantId = $tenantid
-# Removal of Facebook
+# Removal of Facebook References
 $nodes = $trustFrameworkExtensions.GetElementsByTagName("ClaimsProvider")
 $node = $nodes[0];
 $node.ParentNode.RemoveChild($node) | Out-Null
@@ -51,13 +52,37 @@ $ref.InputClaim[0].DefaultValue = $proxyIdentityExperienceFrameworkAppId
 $ref.InputClaim[1].DefaultValue = $identityExperienceFrameworkAppId
 $trustFrameworkExtensions.Save("$(Get-Location)/output/$filename")
 
+# TrustFrameworkLocalization.xml
+$templateXml = $templatesPath + 'TrustFrameworkLocalization.xml'
+$filename = $templateXml.Split('/')[($templateXml.split('/').Count -1)]
+[xml]$trustFrameworkLocalization = Get-Content -Path $templateXml
+$trustFrameworkLocalization.TrustFrameworkPolicy.TenantId = $tenantId
+$publicPolicyUri = "http://$tenantId/B2C_1A_TrustFrameworkLocalization"
+$trustFrameworkLocalization.TrustFrameworkPolicy.PublicPolicyUri = $publicPolicyUri
+$trustFrameworkLocalization.TrustFrameworkPolicy.BasePolicy.TenantId = $tenantid
+$trustFrameworkLocalization.Save("$(Get-Location)/output/$filename")
+
 # TrustFrameworkBase.xml
 $templateXml = $templatesPath + 'TrustFrameworkBase.xml'
 $filename = $templateXml.Split('/')[($templateXml.split('/').Count -1)]
 [xml]$trustFrameworkBase = Get-Content -Path $templateXml
 $trustFrameworkBase.TrustFrameworkPolicy.TenantId = $tenantId
+$publicPolicyUri = "http://$tenantId/B2C_1A_TrustFrameworkBase"
 $trustFrameworkBase.TrustFrameworkPolicy.PublicPolicyUri = $publicPolicyUri
+# Removal of Facebook References
+$nodes = $trustFrameworkBase.GetElementsByTagName("ClaimsProvider")
+$node = $nodes[0];
+$node.ParentNode.RemoveChild($node) | Out-Null
 $trustFrameworkBase.Save("$(Get-Location)/output/$filename")
-
+$nodes = $trustFrameworkBase.GetElementsByTagName("UserJourney")
+$node = $nodes[0].OrchestrationSteps.OrchestrationStep[0].ClaimsProviderSelections.ClaimsProviderSelection[0]
+$node.ParentNode.RemoveChild($node) | Out-Null
+$node = $nodes[0].OrchestrationSteps.OrchestrationStep[1].ClaimsExchanges.ClaimsExchange[0]
+$node.ParentNode.RemoveChild($node) | Out-Null
+$node = $nodes[1].OrchestrationSteps.OrchestrationStep[0].ClaimsProviderSelections.ClaimsProviderSelection[0]
+$node.ParentNode.RemoveChild($node) | Out-Null
+$node = $nodes[1].OrchestrationSteps.OrchestrationStep[1].ClaimsExchanges.ClaimsExchange[0]
+$node.ParentNode.RemoveChild($node) | Out-Null
+$trustFrameworkBase.Save("$(Get-Location)/output/$filename")
 
 
