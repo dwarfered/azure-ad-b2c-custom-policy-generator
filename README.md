@@ -13,5 +13,5 @@ b2c-policies-for-local-accounts.ps1
 b2c-policies-for-local-accounts-with-signup-disabled.ps1
 > Generate IEF XML for Local Accounts Only with self-service signup disabled.
 
-## Local Accounts and Federered Azure AD
+## Local Accounts and federated Azure AD
 Pending.
