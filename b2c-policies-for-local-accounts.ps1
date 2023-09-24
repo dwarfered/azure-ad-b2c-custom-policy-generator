@@ -36,7 +36,6 @@ function New-b2cPolicy {
         $name = $filename.Split('.xml')[0]
         $xmlDoc.TrustFrameworkPolicy.PolicyId = 'B2C_1A_' + $name
         $xmlDoc.TrustFrameworkPolicy.TenantId = $tenantId
-        Write-Host $name
         if ($name -ne 'TrustFrameworkBase') {
             $xmlDoc.TrustFrameworkPolicy.BasePolicy.TenantId = $tenantId
         }
@@ -54,12 +53,14 @@ $xmlDoc.Save("$(Get-Location)/output/$signupsignin")
 $trustFrameworkExtensions = 'TrustFrameworkExtensions.xml'
 $path = $templatesPath + $trustFrameworkExtensions
 $xmlDoc = New-b2cPolicy $path
-$ref = $xmlDoc.TrustFrameworkPolicy.ClaimsProviders.ClaimsProvider.TechnicalProfiles.TechnicalProfile.MetaData
-$ref.Item[0].InnerText = $proxyIdentityExperienceFrameworkAppId
-$ref.Item[1].InnerText = $identityExperienceFrameworkAppId
-$ref = $xmlDoc.TrustFrameworkPolicy.ClaimsProviders.ClaimsProvider.TechnicalProfiles.TechnicalProfile.InputClaims
-$ref.InputClaim[0].DefaultValue = $proxyIdentityExperienceFrameworkAppId
-$ref.InputClaim[1].DefaultValue = $identityExperienceFrameworkAppId
+
+$iefConfig = $xmldoc.GetElementsByTagName('TechnicalProfile') | Where-Object {$_.Id -eq 'login-NonInteractive'}
+$iefMetaData = $iefConfig.MetaData
+$iefMetaData.Item[0].InnerText = $proxyIdentityExperienceFrameworkAppId
+$iefMetaData.Item[1].InnerText = $identityExperienceFrameworkAppId
+$iefInputClaims = $iefConfig.InputClaims
+$iefInputClaims.InputClaim[0].DefaultValue = $proxyIdentityExperienceFrameworkAppId
+$iefInputClaims.InputClaim[1].DefaultValue = $identityExperienceFrameworkAppId
 $xmlDoc.Save("$(Get-Location)/output/$trustFrameworkExtensions")
 
 $trustFrameworkLocalization = 'TrustFrameworkLocalization.xml'
