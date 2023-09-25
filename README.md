@@ -9,14 +9,13 @@ Generation of Azure AD B2C Tenant Identity Experience Framework (IEF) XML polici
 b2c-local-accounts.ps1
 > Generate IEF XML for Local Accounts support only.
 
-![Alt text](images/b2c-local-accounts.png?raw=true "B2C Local Accounts")
+<img src="images/b2c-local-accounts.png" width="300">
 
 ## Local Accounts with signup disabled
 b2c-local-accounts-with-signup-disabled.ps1
 > Generate IEF XML for Local Accounts Only with self-service signup disabled.
 
-![Alt text](images/b2c-local-accounts-signup-disabled.png?raw=true "B2C Local Accounts Signup Disabled")
-
+<img src="images/b2c-local-accounts-signup-disabled.png" width="300">
 
 ## Local Accounts and federated Azure AD
 Pending.
