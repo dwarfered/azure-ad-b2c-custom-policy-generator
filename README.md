@@ -13,13 +13,13 @@ localaccounts.ps1
 
 <img src="images/b2c-local-accounts.png" width="300">
 
-## Local Accounts with signup disabled
+## Local Accounts with self-service signup disabled
 localaccounts-signin.ps1
 > Generate IEF XML for Local Accounts Only with self-service signup disabled.
 
 <img src="images/b2c-local-accounts-signup-disabled.png" width="300">
 
-## Local Accounts with signup disabled and passwordless
+## Local Accounts with self-service signup disabled and passwordless
 localaccounts-signin-passwordless.ps1
 > Generate IEF XML for Local Accounts Only with self-service signup disabled and passwordless authentication only.
 
