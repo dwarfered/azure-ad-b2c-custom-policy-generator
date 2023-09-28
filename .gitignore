@@ -6,3 +6,4 @@ output/SignUpOrSignin.xml
 output/TrustFrameworkBase.xml
 output/TrustFrameworkExtensions.xml
 output/TrustFrameworkLocalization.xml
+output/SigninPasswordless.xml
