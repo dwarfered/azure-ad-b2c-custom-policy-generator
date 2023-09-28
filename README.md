@@ -4,8 +4,10 @@ Generation of Azure AD B2C Tenant Identity Experience Framework (IEF) XML polici
 
 <img src="images/b2c-basic.png" width="600">
 
-> Configure the config.json according to your IEF values
+>  1. Configure the config.json according to your IEF values
 [Adding Signing and Encryption Keys for Identity Experience Framework](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications)
+> 2. Run target script.
+> 3. From Output folder upload TrustFrameworkBase, TrustFrameworkLocalization, ...
 
 ## Local Accounts
 localaccounts.ps1
