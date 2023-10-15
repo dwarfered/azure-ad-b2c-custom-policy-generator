@@ -60,7 +60,7 @@ $xmlDoc = New-b2cPolicy -Path $path -PolicyName 'Signin'
 $xmlDoc.Save("$(Get-Location)/output/Signin.xml")
 
 $trustFrameworkExtensions = 'TrustFrameworkExtensions.xml'
-$path = './templates/b2c-custom-policy-generator/LocalAccounts/signup-disabled/' + $trustFrameworkExtensions
+$path = './templates/scenarios/LocalAccounts/signup-only/' + $trustFrameworkExtensions
 $xmlDoc = New-b2cPolicy -Path $path
 $iefConfig = $xmldoc.GetElementsByTagName('TechnicalProfile') | Where-Object {$_.Id -eq 'login-NonInteractive'}
 $iefMetaData = $iefConfig.MetaData
