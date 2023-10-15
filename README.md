@@ -5,7 +5,7 @@ Easily create Custom Policy XML files for your Azure AD B2C Tenant.
 <img src="images/b2c-basic.png" width="600">
 
 > 1. [Adding Signing and Encryption Keys for Identity Experience Framework](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications)
-> 2. Configure the config.json according to your IEF values
+> 2. Configure the config.json file according to your values from the steps in the link above.
 > 3. Run the PowerShell script for your chosen output 'localaccounts-signin-passwordless-only.ps1', 'local-accounts-signin-only.ps1'...
 > 4. From Output folder upload TrustFrameworkBase.xml, TrustFrameworkLocalization.xml, TrustFrameworkExtensions.xml ...
 
