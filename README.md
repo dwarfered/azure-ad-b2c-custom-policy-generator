@@ -9,6 +9,8 @@ Easily create Custom Policy XML files for your Azure AD B2C Tenant.
 > 2. Run the PowerShell script for your chosen output 'localaccounts-signin-passwordless-only.ps1', 'local-accounts-signin-only.ps1'...
 > 3. From Output folder upload TrustFrameworkBase.xml, TrustFrameworkLocalization.xml, TrustFrameworkExtensions.xml ...
 
+<img src="images/b2c-xml-generation.png" width="600">
+
 ## Local Accounts
 localaccounts.ps1
 > Create Custom Policy XML for Local Account support only.
