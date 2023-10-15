@@ -25,6 +25,8 @@ localaccounts-signin.ps1
 localaccounts-signin-passwordless.ps1
 > Generate IEF XML for Local Accounts Only with Self-Service Signup disabled and Passwordless authentication only.
 
+<img src="images/b2c-local-accounts-signup-disabled-passwordless-2.png" width="300">
+
 <img src="images/b2c-local-accounts-signup-disabled-passwordless.png" width="300">
 
 ## Local Accounts and federated Azure AD
