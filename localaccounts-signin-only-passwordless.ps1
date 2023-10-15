@@ -55,12 +55,12 @@ function New-b2cPolicy {
 }
 
 $signinPasswordless = 'SigninPasswordless.xml'
-$path = './templates/b2c-custom-policy-generator/LocalAccounts/signup-disabled-with-passwordless/' + $signupsignin
+$path = "./templates/b2c-custom-policy-generator/LocalAccounts/signup-disabled-with-passwordless/$signinPasswordless"
 $xmlDoc = New-b2cPolicy -Path $path -PolicyName 'SigninPasswordless'
 $xmlDoc.Save("$(Get-Location)/output/$signinPasswordless")
 
 $trustFrameworkExtensions = 'TrustFrameworkExtensions.xml'
-$path = './templates/b2c-custom-policy-generator/LocalAccounts/signup-disabled-with-passwordless/' + $trustFrameworkExtensions
+$path = "./templates/b2c-custom-policy-generator/LocalAccounts/signup-disabled-with-passwordless/$trustFrameworkExtensions"
 $xmlDoc = New-b2cPolicy -Path $path
 $iefConfig = $xmldoc.GetElementsByTagName('TechnicalProfile') | Where-Object {$_.Id -eq 'login-NonInteractive'}
 $iefMetaData = $iefConfig.MetaData
