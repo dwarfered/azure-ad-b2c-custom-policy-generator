@@ -20,13 +20,13 @@ localaccounts.ps1
 <img src="images/b2c-local-accounts.png" width="300">
 
 ## Local Accounts with self-service signup disabled
-localaccounts-signin.ps1
+localaccounts-signin-only.ps1
 > Create Custom Policy XML for Local Account with Self-Service Signup disabled.
 
 <img src="images/b2c-local-accounts-signup-disabled.png" width="300">
 
 ## Local Accounts with self-service signup disabled and passwordless
-localaccounts-signin-passwordless.ps1
+localaccounts-signin-and-passwordless-only.ps1
 > Create Custom Policy XML for Local Account with Self-Service Signup disabled and Passwordless authentication only.
 
 <img src="images/b2c-local-accounts-signup-disabled-passwordless-2.png" width="300">
