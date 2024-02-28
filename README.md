@@ -1,6 +1,6 @@
 # Azure AD B2C Custom Policy Generator
 
-Crafting Azure AD B2C Custom Policies by hand can be a laborious and error-prone endeavor. This project aims to enhance efficiency by offering a straightforward series of scripts to automate the generation of policy files.
+Manually creating Azure AD B2C Custom Policies often involves a tedious and mistake-filled process. This project revolutionises that approach by introducing a set of streamlined scripts designed to automate the generation of policy files, significantly boosting efficiency and accuracy.
 
 <img src="images/b2c-basic.png" width="600">
 
