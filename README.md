@@ -2,15 +2,22 @@
 
 Manually creating Azure AD B2C Custom Policies often involves a tedious and mistake-filled process. This project revolutionises that approach by introducing a set of streamlined scripts designed to automate the generation of policy files, significantly boosting efficiency and accuracy.
 
+<p align="center">
 <img src="images/b2c-basic.png" width="600">
+</p>
 
 > 1. [Adding Signing and Encryption Keys for Identity Experience Framework](https://learn.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications)
 > 2. Configure the config.json file according to your values from the steps in the link above.
 > 3. Run the PowerShell script for your chosen output 'localaccounts-signin-passwordless-only.ps1', 'local-accounts-signin-only.ps1'...
 > 4. From Output folder upload TrustFrameworkBase.xml, TrustFrameworkLocalization.xml, TrustFrameworkExtensions.xml ...
 
-<img src="images/b2c-xml-generation.png" width="600">
-<img src="images/b2c-custom-policy-upload.png" width="600">
+<p align="center">
+  <img src="images/b2c-xml-generation.png" width="600">
+  <img src="images/b2c-custom-policy-upload.png" width="600">
+  <img src="images/b2c-custom-policy-upload.png" width="600">
+</p>
+
+
 
 ## Local Accounts
 localaccounts.ps1
